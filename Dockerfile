@@ -62,4 +62,4 @@ ENV DOCKER_ENV=true
 EXPOSE 10000
 
 # Run migrations at runtime (Render has DB access here)
-CMD ["/bin/bash", "-c", "npx prisma migrate deploy --schema=prisma/postgresql-schema.prisma && node dist/main.js"]
+CMD ["/bin/bash", "-c", "npx prisma db push --schema=prisma/postgresql-schema.prisma && node dist/main.js"]
