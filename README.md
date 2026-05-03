@@ -27,7 +27,7 @@ Today, Evolution API is not limited to WhatsApp. It integrates with various plat
 ## Looking for a Lightweight Version?
 For those who need a more streamlined and performance-optimized version, check out [Evolution API Lite](https://github.com/EvolutionAPI/evolution-api-lite). It's designed specifically for microservices, focusing solely on connectivity without integrations or audio conversion features. Ideal for environments that prioritize simplicity and efficiency.
 
-## Types of Connections
+## Types of Connection
 
 Evolution API supports multiple types of connections to WhatsApp, enabling flexible and powerful integration options:
 
