@@ -25,11 +25,11 @@ COPY ./Docker ./Docker
 
 RUN chmod +x ./Docker/scripts/* && dos2unix ./Docker/scripts/*
 
-# 🔥 GENERATE PRISMA CLIENT
+# Generate Prisma client (OK in build)
 RUN npx prisma generate --schema=prisma/postgresql-schema.prisma
 
-# 🔥 APPLY MIGRATIONS DURING BUILD (KEY FIX)
-RUN npx prisma migrate deploy --schema=prisma/postgresql-schema.prisma
+# ❌ REMOVE this line (cannot access DB during build)
+# RUN npx prisma migrate deploy --schema=prisma/postgresql-schema.prisma
 
 RUN npm run build
 
@@ -61,5 +61,5 @@ ENV DOCKER_ENV=true
 
 EXPOSE 10000
 
-# 🔥 FORCE MIGRATION + START (DOUBLE SAFETY)
+# Run migrations at runtime (Render has DB access here)
 CMD ["/bin/bash", "-c", "npx prisma migrate deploy --schema=prisma/postgresql-schema.prisma && node dist/main.js"]
